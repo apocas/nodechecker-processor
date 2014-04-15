@@ -4,10 +4,10 @@ var mongo_ip = process.env.MONGODB_HOST || '127.0.0.1';
 var mongo_port = process.env.MONGODB_PORT || 27017;
 var balancer_ip = process.env.BALANCER_HOST || '127.0.0.1';
 var balancer_port = process.env.BALANCER_PORT || 5000;
+var balancer_bd = process.env.BALANCER_BD || 'nodechecker';
 
-var processor = new Processor(mongo_ip, mongo_port, balancer_ip, balancer_port);
+var processor = new Processor(mongo_ip, mongo_port, balancer_ip, balancer_port, balancer_bd);
 
 processor.on('ready', function() {
   processor.run();
 });
-
